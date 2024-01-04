@@ -35,7 +35,7 @@ const NavBar = (props) => {
 
 
   const myDrawer = (
-    <div>
+    <div className="bg-slate-300 text-black h-full">
       <Toolbar />
         <Box sx={{ overflow: "auto" }}>
           <List>

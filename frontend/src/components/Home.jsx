@@ -1,9 +1,11 @@
 import { React, useEffect, useMemo, useState } from "react";
+import PropTypes from "prop-types";
 import AxiosInstance from "./Axios";
 import { Box, IconButton } from '@mui/material';
 import { Edit as EditIcon, Delete as DeleteIcon } from '@mui/icons-material';
 import { MaterialReactTable } from "material-react-table";
 import Dayjs from "dayjs";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [myData, setMyData] = useState();
@@ -62,10 +64,14 @@ const Home = () => {
           columns={columns}
           data={myData}
           enableRowActions
-          renderRowActions={() => (
+          renderRowActions={({row}) => (
             <Box sx={{ display: "flex", flexWrap: "nowrap", gap: "8px" }}>
               
-              <IconButton color="secondary">
+              <IconButton
+                color="secondary"
+                component={Link}
+                to={`edit/${row.original.id}`}
+              >
                 <EditIcon />
               </IconButton>
 
@@ -79,6 +85,10 @@ const Home = () => {
       )}
     </div>
   );
+};
+Home.propTypes = {
+  myData: PropTypes.array,
+  loading: PropTypes.bool,
 };
 
 export default Home;
