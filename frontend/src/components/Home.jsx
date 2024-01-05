@@ -1,8 +1,8 @@
 import { React, useEffect, useMemo, useState } from "react";
 import PropTypes from "prop-types";
 import AxiosInstance from "./Axios";
-import { Box, IconButton } from '@mui/material';
-import { Edit as EditIcon, Delete as DeleteIcon } from '@mui/icons-material';
+import { Box, IconButton } from "@mui/material";
+import { Edit as EditIcon, Delete as DeleteIcon } from "@mui/icons-material";
 import { MaterialReactTable } from "material-react-table";
 import Dayjs from "dayjs";
 import { Link } from "react-router-dom";
@@ -64,9 +64,8 @@ const Home = () => {
           columns={columns}
           data={myData}
           enableRowActions
-          renderRowActions={({row}) => (
+          renderRowActions={({ row }) => (
             <Box sx={{ display: "flex", flexWrap: "nowrap", gap: "8px" }}>
-              
               <IconButton
                 color="secondary"
                 component={Link}
@@ -75,10 +74,13 @@ const Home = () => {
                 <EditIcon />
               </IconButton>
 
-              <IconButton color="error">
+              <IconButton
+                color="error"
+                component={Link}
+                to={`delete/${row.original.id}`}
+              >
                 <DeleteIcon />
               </IconButton>
-            
             </Box>
           )}
         />

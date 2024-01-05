@@ -13,6 +13,7 @@ const Edit = () => {
   const MyParam = useParams();
   const MyId = MyParam.id;
   
+  
 
   const GetData = () => {
     AxiosInstance.get(`project/${MyId}`).then((res) => {
@@ -67,7 +68,7 @@ const Edit = () => {
           }}
         >
           <Typography sx={{ marginLeft: "20px", color: "#fff" }}>
-            Create Records
+            Edit Project:
           </Typography>
         </Box>
 
