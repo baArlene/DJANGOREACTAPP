@@ -23,6 +23,8 @@ export default function MyMultilineTextField(props) {
           rows={1}
           variant="standard"
           placeholder={placeholder}
+          error = {!!error}
+          helperText = {error?.message}
         />
       )}
     />
