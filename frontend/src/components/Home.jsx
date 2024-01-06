@@ -88,9 +88,6 @@ const Home = () => {
     </div>
   );
 };
-Home.propTypes = {
-  myData: PropTypes.array,
-  loading: PropTypes.bool,
-};
+
 
 export default Home;

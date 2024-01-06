@@ -3,7 +3,7 @@ import { Box, Button, Typography } from "@mui/material";
 import MyDatePickerField from "./forms/MyDatePickerField";
 import MyMultilineTextField from "./forms/MyMultilineField";
 import MySelectField from "./forms/MySelectField";
-import MyTextFields from "./forms/MyTextField";
+import MyTextField from "./forms/MyTextField";
 import { useForm } from "react-hook-form";
 import AxiosInstance from "./Axios";
 import dayjs from "dayjs";
@@ -44,7 +44,9 @@ const Create = () => {
   //Form validation using Yup
   const schema = yup.object({
     name: yup.string().required("Name is a required field"),
-    projectmanager: yup.string().required("Project Manager is a required field"),
+    projectmanager: yup
+      .string()
+      .required("Project Manager is a required field"),
     status: yup.string().required("Status is a required field"),
     comments: yup.string(),
     start_date: yup.date().required("Start Date is a required field"),
@@ -81,6 +83,7 @@ const Create = () => {
           <Box
             sx={{
               display: "flex",
+              justifyContent: "space-between",
               width: "100%",
               backgroundColor: "#00003f",
               marginBottom: "10px",
@@ -107,7 +110,7 @@ const Create = () => {
                 marginBottom: "40px",
               }}
             >
-              <MyTextFields
+              <MyTextField
                 label="Name"
                 name="name"
                 control={control}
@@ -145,7 +148,6 @@ const Create = () => {
                 options={select_options}
                 control={control}
                 width={"30%"}
-                
               />
 
               <MySelectField
@@ -154,7 +156,6 @@ const Create = () => {
                 options={projectManager}
                 control={control}
                 width={"30%"}
-                
               />
             </Box>
             <Box

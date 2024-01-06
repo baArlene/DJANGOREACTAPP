@@ -8,10 +8,11 @@ import Delete from "./components/Delete";
 
 
 function App() {
+  const myWidth = 220
   return (
     <>
       <NavBar 
-        drawerWidth = {220}
+        drawerWidth = {myWidth}
         content = {
           <Routes>
             <Route path="/" element={<Home />} />

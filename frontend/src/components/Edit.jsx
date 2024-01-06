@@ -3,7 +3,7 @@ import { Box, Button, Typography } from "@mui/material";
 import MyDatePickerField from "./forms/MyDatePickerField";
 import MyMultilineTextField from "./forms/MyMultilineField";
 import MySelectField from "./forms/MySelectField";
-import MyTextFields from "./forms/MyTextField";
+import MyTextField from "./forms/MyTextField";
 import { useForm } from "react-hook-form";
 import AxiosInstance from "./Axios";
 import dayjs from "dayjs";
@@ -52,7 +52,7 @@ const Edit = () => {
     comments: "",
     status: "",
   };
-  const { handleSubmit, reset, setValue, control } = useForm({
+  const { handleSubmit, setValue, control } = useForm({
     defaultValues: defaultValues,
   });
 
@@ -81,6 +81,7 @@ const Edit = () => {
           <Box
             sx={{
               display: "flex",
+              justifyContent: "space-between",
               width: "100%",
               backgroundColor: "#00003f",
               marginBottom: "10px",
@@ -107,7 +108,7 @@ const Edit = () => {
                 marginBottom: "40px",
               }}
             >
-              <MyTextFields
+              <MyTextField
                 label="Name"
                 name="name"
                 control={control}
@@ -142,17 +143,21 @@ const Edit = () => {
               <MySelectField
                 label="Status"
                 name="status"
-                control={control}
-                width={"30%"}
                 options={select_options}
+                width={'30%'}
+                control={control}
+                
+                
               />
 
               <MySelectField
                 label="Project Manager"
                 name="projectmanager"
-                control={control}
-                width={"30%"}
                 options={projectManager}
+                control={control}
+                width={'30%'}
+                
+                
               />
             </Box>
             <Box
@@ -162,7 +167,7 @@ const Edit = () => {
                 marginTop: "40px",
               }}
             >
-              <Button variant="contained" type="submit" sx={{ width: "100%" }}>
+              <Button variant="contained" type="submit" sx={{ width: "30%" }}>
                 Update
               </Button>
             </Box>

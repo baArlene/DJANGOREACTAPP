@@ -11,38 +11,33 @@ export default function MySelectField(props) {
   const { label, width, name, control, options } = props;
 
   return (
-    <FormControl variant="standard" sx={{ width: { width } }}>
-      <InputLabel id="demo-simple-select-filled-label">{label}</InputLabel>
-      <Controller
-        name={name}
-        control={control}
-        render={({
-          field: { onChange, value },
-          fieldState: { error },
-          formState,
-        }) => (
-          <FormControl variant="standard" sx={{ width: { width } }}>
-            <InputLabel id="demo-simple-select-filled-label">
-              {label}
-            </InputLabel>
-            <Select
-              labelId="demo-simple-select-filled-label"
-              id="demo-simple-select-filled"
-              onChange={onChange}
-              value={value}
-              error={!!error}
-            >
-              {options.map((option) => (
-                <MenuItem value={option.id}>{option.name}</MenuItem>
-              ))}
-            </Select>
+    <Controller
+      name={name}
+      control={control}
+      render={({
+        field: { onChange, value },
+        fieldState: { error },
+        formState,
+      }) => (
+        <FormControl variant="standard" sx={{ width: { width } }}>
+          <InputLabel id="demo-simple-select-filled-label">{label}</InputLabel>
+          <Select
+            labelId="demo-simple-select-filled-label"
+            id="demo-simple-select-filled"
+            onChange={onChange}
+            value={value}
+            error={!!error}
+          >
+            {options.map((option) => (
+              <MenuItem value={option.id}>{option.name}</MenuItem>
+            ))}
+          </Select>
 
-            <FormHelperText sx={{ color: "#d32f2f" }}>
-              {error?.message}
-            </FormHelperText>
-          </FormControl>
-        )}
-      />
-    </FormControl>
+          <FormHelperText sx={{ color: "#d32f2f" }}>
+            {error?.message}
+          </FormHelperText>
+        </FormControl>
+      )}
+    />
   );
 }
